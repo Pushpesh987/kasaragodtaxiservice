@@ -1,0 +1,15 @@
+# Robots.txt for Kasaragod Taxi Services - Sahas Tours
+# https://kasaragodtaxiservice.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kasaragodtaxiservice.vercel.app/sitemap.xml
+
+# Allow all search engines to crawl
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

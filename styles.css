@@ -1243,6 +1243,114 @@ ul {
 
 
 /* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq__item {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(194,198,211,0.15);
+    overflow: hidden;
+    transition: all var(--duration) var(--ease);
+}
+
+.faq__item:hover {
+    border-color: rgba(0,82,155,0.2);
+    box-shadow: var(--shadow-sm);
+}
+
+.faq__item[open] {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer;
+    font-family: var(--font-headline);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--primary);
+    list-style: none;
+    user-select: none;
+    transition: background var(--duration) var(--ease);
+}
+
+.faq__question::-webkit-details-marker {
+    display: none;
+}
+
+.faq__question::marker {
+    content: '';
+}
+
+.faq__question:hover {
+    background: rgba(0,82,155,0.03);
+}
+
+.faq__icon {
+    font-size: 24px;
+    color: var(--on-surface-variant);
+    transition: transform var(--duration) var(--ease);
+    flex-shrink: 0;
+}
+
+.faq__item[open] .faq__icon {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+
+.faq__answer {
+    padding: 0 24px 20px;
+    font-size: 15px;
+    color: var(--on-surface-variant);
+    line-height: 1.7;
+}
+
+.faq__answer a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--secondary);
+    text-underline-offset: 3px;
+    transition: color var(--duration) var(--ease);
+}
+
+.faq__answer a:hover {
+    color: var(--secondary);
+}
+
+@media (min-width: 1024px) {
+    .faq {
+        padding: 96px 0;
+    }
+    .faq__question {
+        font-size: 18px;
+        padding: 24px 28px;
+    }
+    .faq__answer {
+        padding: 0 28px 24px;
+    }
+}
+
+
+/* ============================================================
    CTA
    ============================================================ */
 .cta {
