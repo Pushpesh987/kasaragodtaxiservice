@@ -168,10 +168,48 @@
         });
     }
 
+    /* ── Hero Typing Animation (Looping) ── */
+    function initHeroTyping() {
+        var typingEl = document.getElementById('hero-typing-text');
+        if (!typingEl) return;
+
+        var text = 'SAHAS TOURS KASARAGOD';
+        var typingSpeed = 90;
+        var eraseSpeed = 50;
+        var pauseAfterType = 5000;  // 5 seconds
+        var pauseAfterErase = 400;
+
+        function typeText(i) {
+            if (i < text.length) {
+                typingEl.textContent += text.charAt(i);
+                var delay = text.charAt(i) === ' ' ? typingSpeed * 2.5 : typingSpeed;
+                setTimeout(function () { typeText(i + 1); }, delay);
+            } else {
+                // Done typing — wait 5s then erase
+                setTimeout(eraseText, pauseAfterType);
+            }
+        }
+
+        function eraseText() {
+            var current = typingEl.textContent;
+            if (current.length > 0) {
+                typingEl.textContent = current.slice(0, -1);
+                setTimeout(eraseText, eraseSpeed);
+            } else {
+                // Done erasing — brief pause then retype
+                setTimeout(function () { typeText(0); }, pauseAfterErase);
+            }
+        }
+
+        // Start typing after a brief initial delay
+        setTimeout(function () { typeText(0); }, 600);
+    }
+
     /* ── Initialize on DOM Ready ── */
     document.addEventListener('DOMContentLoaded', function () {
         initScrollReveal();
         animateCounters();
+        initHeroTyping();
         handleScroll(); // Initial check
     });
 

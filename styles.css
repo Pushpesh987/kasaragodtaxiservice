@@ -662,6 +662,34 @@ ul {
     color: var(--secondary-container);
 }
 
+/* Typing Animation */
+.hero__typing-wrapper {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.15em;
+}
+
+.hero__typing-text {
+    background: linear-gradient(135deg, #fecb00 0%, #ffe68a 50%, #fecb00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.02em;
+}
+
+.hero__typing-cursor {
+    display: inline-block;
+    color: var(--secondary-container);
+    font-weight: 300;
+    animation: heroBlink 0.7s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes heroBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .hero__description {
     font-family: var(--font-body);
     font-size: 17px;
